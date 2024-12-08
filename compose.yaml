@@ -1,0 +1,16 @@
+name: sni_compose
+
+services:
+  sni:
+    build:
+      context: ./frontend
+      additional_contexts:
+        - root=.
+    container_name: sni
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - ./certbot_challenge:/usr/share/nginx/html/certbot
+#      - /etc/letsencrypt:/etc/letsencrypt
