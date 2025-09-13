@@ -2,8 +2,8 @@
 1. Create `certbot_challenge` folder inside this repository;
 2. Run a container with `dummy_sni` with current configuration;
 3. If you run certbot with a DNS plugin create `.secrets` folder somewhere (for example in `/etc/letsencrypt/`) with `<your_dns_service>.ini` file inside, containing your API token to needed service;
-4. Get SSL certificates with certbot in `etc/letsencrypt` for your domain via 80 port;
-5. Add `restart_nginx.sh` post renewal-hook with syncing between servers (if you have them) and make this executable;
+4. Get SSL certificates with certbot in `/etc/letsencrypt` for your domain via 80 port;
+5. Add `restart_nginx.sh` post renewal-hook with syncing between servers (if you have them) and make this executable, `dry-run` a few times to be sure it`s working as expected;
 6. Change `nginx.conf` file with your actual domain name in `server_name` and with your path to certificate and certificate_key in `etc/letsencrypt`;
 7. Clone `3x-UI` repository and **create `./x-ui-data` folder first** there with volume mounting to `/etc/x-ui` inside 3x-UI container, also with mounting your `/etc/letsencrypt` to `/etc/letsencrypt` in a container to use panel with HTTPS;
 8. Create only one inbound on `443` port with all your clients for this inbound and make fallback to local website on port `8443` OR just sync this configuration from your another server (for this goal we are creating `x-ui-data` as well);
