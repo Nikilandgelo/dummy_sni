@@ -1,1 +1,1 @@
-# Repository of static website for selfsteal sni to Xray
+# Repository of static website for selfsteal SNI to Xray
