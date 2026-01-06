@@ -12,5 +12,4 @@ services:
       - "127.0.0.1:8443:8443"
     restart: unless-stopped
     volumes:
-      - ./certbot_challenge:/usr/share/nginx/html/certbot
       - /etc/letsencrypt:/etc/letsencrypt
